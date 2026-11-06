@@ -1,0 +1,15 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+
+        hashm={")":"(","}":"{","]":"["}
+
+        ans=[]
+        for c in s:
+            if c in hashm:
+                if ans and ans[-1]==hashm[c]:
+                    ans.pop(-1)
+                else:
+                    return False    
+            else:
+                ans.append(c)
+        return True if not ans else False   
